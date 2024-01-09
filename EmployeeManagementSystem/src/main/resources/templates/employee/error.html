@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System - Error</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-primary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" th:href="@{/employees}">Employee Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-light" th:href="@{/employees/create}">New Employee</a>
+                </li>
+            </ul>
+            <form th:action="@{/employees/search}" method="get" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" th:value="${searchQuery}">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <h1>Oops! We Hit a Roadblock - Error</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="text-danger" th:text="${error}"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <a th:href="@{/employees/list}" class="btn btn-secondary">Return to Employee List</a>
+    </div>
+</div>
+<br>
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+        <p>&copy; 2024 Employee Management System. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
